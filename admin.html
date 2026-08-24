@@ -10,9 +10,29 @@
     <script src="admin.js" defer></script>
   </head>
   <body class="admin-body">
+    <main class="admin-login" id="admin-login">
+      <form class="login-card" id="login-form">
+        <span class="brand-mark">SH</span>
+        <p class="admin-kicker">Accès privé</p>
+        <h1>Espace Admin</h1>
+        <p>Connectez-vous pour gérer le contenu du portfolio.</p>
+        <label>
+          <span>Mot de passe</span>
+          <input name="password" type="password" autocomplete="current-password" required autofocus />
+        </label>
+        <button class="button button-primary" type="submit">Se connecter</button>
+        <p class="login-status" role="alert"></p>
+        <a class="back-link" href="index.html">← Retour au portfolio</a>
+      </form>
+    </main>
+
+    <div class="admin-app" id="admin-app" hidden>
     <header class="admin-header">
       <a class="brand" href="index.html"><span class="brand-mark">SH</span><span>Portfolio Admin</span></a>
-      <a class="button button-secondary" href="index.html">Voir le portfolio</a>
+      <div class="admin-header-actions">
+        <a class="button button-secondary" href="index.html">Voir le portfolio</a>
+        <button class="button button-secondary" id="logout-button" type="button">Déconnexion</button>
+      </div>
     </header>
     <main class="admin-shell">
       <aside class="admin-sidebar">
@@ -119,5 +139,6 @@
         </section>
       </div>
     </main>
+    </div>
   </body>
 </html>

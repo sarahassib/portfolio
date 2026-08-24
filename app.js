@@ -167,8 +167,7 @@ document.querySelectorAll(".reveal").forEach((element, index) => {
   observer.observe(element);
 });
 
-const heroVisual = document.querySelector(".hero-visual");
-const constellation = document.querySelector(".constellation-canvas");
+const constellation = document.querySelector(".site-constellation");
 const constellationContext = constellation.getContext("2d");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let constellationWidth = 0;
@@ -180,7 +179,7 @@ let pointer = { x: 0.5, y: 0.5, active: false };
 function makeConstellationNodes(count) {
   return Array.from({ length: count }, (_, index) => ({
     x: 0.08 + Math.random() * 0.84,
-    y: 0.07 + Math.random() * 0.75,
+    y: 0.04 + Math.random() * 0.92,
     vx: (Math.random() - 0.5) * 0.00016,
     vy: (Math.random() - 0.5) * 0.00016,
     radius: index % 7 === 0 ? 2.2 + Math.random() * 1.4 : 0.8 + Math.random() * 1.5,
@@ -190,21 +189,21 @@ function makeConstellationNodes(count) {
 }
 
 function resizeConstellation() {
-  const box = heroVisual.getBoundingClientRect();
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  constellationWidth = box.width;
-  constellationHeight = box.height;
-  constellation.width = Math.round(box.width * ratio);
-  constellation.height = Math.round(box.height * ratio);
+  constellationWidth = window.innerWidth;
+  constellationHeight = window.innerHeight;
+  constellation.width = Math.round(constellationWidth * ratio);
+  constellation.height = Math.round(constellationHeight * ratio);
   constellationContext.setTransform(ratio, 0, 0, ratio, 0, 0);
-  constellationNodes = makeConstellationNodes(box.width < 500 ? 30 : 46);
+  constellationNodes = makeConstellationNodes(constellationWidth < 680 ? 38 : 76);
   drawConstellation(performance.now());
 }
 
 function drawStar(x, y, radius, opacity) {
   constellationContext.save();
   constellationContext.translate(x, y);
-  constellationContext.strokeStyle = `rgba(235, 245, 255, ${opacity})`;
+  const darkTheme = document.documentElement.dataset.theme === "dark";
+  constellationContext.strokeStyle = darkTheme ? `rgba(235, 245, 255, ${opacity})` : `rgba(13, 82, 188, ${opacity * 0.72})`;
   constellationContext.lineWidth = 1;
   constellationContext.beginPath();
   constellationContext.moveTo(-radius * 2.7, 0);
@@ -214,7 +213,7 @@ function drawStar(x, y, radius, opacity) {
   constellationContext.stroke();
   constellationContext.beginPath();
   constellationContext.arc(0, 0, radius, 0, Math.PI * 2);
-  constellationContext.fillStyle = `rgba(255, 255, 255, ${Math.min(opacity + 0.2, 1)})`;
+  constellationContext.fillStyle = darkTheme ? `rgba(255, 255, 255, ${Math.min(opacity + 0.2, 1)})` : `rgba(23, 105, 224, ${Math.min(opacity + 0.12, 0.86)})`;
   constellationContext.fill();
   constellationContext.restore();
 }
@@ -229,7 +228,7 @@ function drawConstellation(time) {
       node.x += node.vx;
       node.y += node.vy;
       if (node.x < 0.04 || node.x > 0.96) node.vx *= -1;
-      if (node.y < 0.04 || node.y > 0.82) node.vy *= -1;
+      if (node.y < 0.04 || node.y > 0.96) node.vy *= -1;
     }
   });
 
@@ -242,11 +241,11 @@ function drawConstellation(time) {
       const secondX = second.x * constellationWidth;
       const secondY = second.y * constellationHeight;
       const distance = Math.hypot(firstX - secondX, firstY - secondY);
-      if (distance < 118) {
+      if (distance < 140) {
         constellationContext.beginPath();
         constellationContext.moveTo(firstX, firstY);
         constellationContext.lineTo(secondX, secondY);
-        constellationContext.strokeStyle = `rgba(111, 169, 255, ${(1 - distance / 118) * 0.32})`;
+        constellationContext.strokeStyle = `rgba(70, 139, 238, ${(1 - distance / 140) * 0.34})`;
         constellationContext.lineWidth = 0.75;
         constellationContext.stroke();
       }
@@ -273,7 +272,8 @@ function drawConstellation(time) {
     } else {
       constellationContext.beginPath();
       constellationContext.arc(x, y, node.radius, 0, Math.PI * 2);
-      constellationContext.fillStyle = `rgba(224, 239, 255, ${twinkle})`;
+      const darkTheme = document.documentElement.dataset.theme === "dark";
+      constellationContext.fillStyle = darkTheme ? `rgba(224, 239, 255, ${twinkle})` : `rgba(23, 105, 224, ${twinkle * 0.72})`;
       constellationContext.fill();
     }
   });
@@ -281,15 +281,15 @@ function drawConstellation(time) {
   if (!reduceMotion.matches) constellationFrame = requestAnimationFrame(drawConstellation);
 }
 
-heroVisual.addEventListener("pointermove", (event) => {
-  const bounds = heroVisual.getBoundingClientRect();
-  pointer = { x: (event.clientX - bounds.left) / bounds.width, y: (event.clientY - bounds.top) / bounds.height, active: true };
+window.addEventListener("pointermove", (event) => {
+  pointer = { x: event.clientX / constellationWidth, y: event.clientY / constellationHeight, active: true };
 });
-heroVisual.addEventListener("pointerleave", () => { pointer.active = false; });
-new ResizeObserver(() => {
+document.documentElement.addEventListener("mouseleave", () => { pointer.active = false; });
+window.addEventListener("resize", () => {
   cancelAnimationFrame(constellationFrame);
   resizeConstellation();
-}).observe(heroVisual);
+});
+resizeConstellation();
 
 const metrics = document.querySelector(".metrics");
 const countObserver = new IntersectionObserver((entries) => {

@@ -1,3 +1,52 @@
+const adminPasswordHash = "9a1fc2a937d38068fbbe89a5037228049745a4a2332142b82344f6763f2043c1";
+const adminSessionKey = "sara-portfolio-admin-session";
+const loginScreen = document.querySelector("#admin-login");
+const adminApp = document.querySelector("#admin-app");
+const loginForm = document.querySelector("#login-form");
+const loginStatus = document.querySelector(".login-status");
+const logoutButton = document.querySelector("#logout-button");
+let failedAttempts = 0;
+
+async function hashPassword(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function showAdmin() {
+  loginScreen.hidden = true;
+  adminApp.hidden = false;
+}
+
+if (sessionStorage.getItem(adminSessionKey) === "authenticated") showAdmin();
+
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (failedAttempts >= 5) {
+    loginStatus.textContent = "Trop de tentatives. Rechargez la page dans quelques minutes.";
+    return;
+  }
+
+  const submittedHash = await hashPassword(loginForm.password.value);
+  if (submittedHash === adminPasswordHash) {
+    sessionStorage.setItem(adminSessionKey, "authenticated");
+    loginForm.reset();
+    loginStatus.textContent = "";
+    showAdmin();
+    return;
+  }
+
+  failedAttempts += 1;
+  loginForm.password.value = "";
+  loginStatus.textContent = `Mot de passe incorrect. ${5 - failedAttempts} tentative(s) restante(s).`;
+  loginForm.password.focus();
+});
+
+logoutButton.addEventListener("click", () => {
+  sessionStorage.removeItem(adminSessionKey);
+  window.location.reload();
+});
+
 const storageKey = "sara-portfolio-content";
 const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
 saved.hero ||= {};
