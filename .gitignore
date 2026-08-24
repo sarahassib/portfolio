@@ -1,0 +1,9 @@
+.tools/
+.pnpm-home/
+.pnpm-store/
+.cache/
+.config/
+.npm-cache/
+.vercel/
+Thumbs.db
+.DS_Store

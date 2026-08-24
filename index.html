@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sara Hassib, spécialiste Growth Marketing, Marketing Automation et acquisition digitale." />
+    <meta name="theme-color" content="#07111f" />
+    <title>Sara Hassib | Growth Marketing & Automation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Navigation principale">
+        <a class="brand" href="#home" aria-label="Sara Hassib, accueil">
+          <span class="brand-mark">SH</span>
+          <span>Sara Hassib</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a href="#projects" data-i18n="navProjects">Projets</a>
+          <a href="#experience" data-i18n="navExperience">Expérience</a>
+          <a href="#education" data-i18n="navEducation">Formation</a>
+          <a href="#skills" data-i18n="navSkills">Compétences</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button class="control language-toggle" type="button" aria-label="Changer la langue">EN</button>
+          <button class="control theme-toggle" type="button" aria-label="Changer le thème"><span class="theme-label">Clair</span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero shell" id="home">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="heroEyebrow">Growth Marketing + Automation</p>
+          <h1 data-i18n="heroTitle">L'acquisition pensée pour convertir.</h1>
+          <p class="hero-intro" data-i18n="heroIntro">Marketing data-driven, automatisation et exécution technique pour générer des leads qualifiés.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects" data-i18n="viewProjects">Voir mes projets</a>
+            <a class="button button-secondary" href="sarahassib.pdf" download data-i18n="downloadCv">Télécharger mon CV</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Constellation animée représentant des connexions et des flux automatisés" role="img">
+          <canvas class="constellation-canvas" aria-hidden="true"></canvas>
+          <div class="constellation-core" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="visual-note">
+            <span data-i18n="visualNote">De l'attention à la conversion</span>
+            <strong>Lead → MQL → SQL</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics shell" aria-label="Résultats clés">
+        <article class="metric reveal"><strong data-count-min="250" data-count-max="300">250-300</strong><span data-i18n="metricLeads">prospects qualifiés par mois</span></article>
+        <article class="metric reveal"><strong data-count-min="8" data-count-max="10">8-10</strong><span data-i18n="metricCampaigns">campagnes actives par semaine</span></article>
+        <article class="metric reveal"><strong data-count-max="3">3</strong><span data-i18n="metricProjects">projets marketing-tech</span></article>
+      </section>
+
+      <section class="section shell" id="projects">
+        <div class="section-heading reveal">
+          <h2 data-i18n="projectsTitle">Des projets pensés comme des outils de croissance.</h2>
+          <p data-i18n="projectsIntro">Chaque projet relie un besoin marketing à une solution concrète, mesurable et simple à utiliser.</p>
+        </div>
+
+        <div class="projects-list" id="projects-list">
+          <article class="project project-featured reveal" data-project="project1">
+            <div class="project-media">
+              <img src="assets/projects/projet1.png" alt="Aperçu de LeadPulse Analytics" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+              <div class="media-placeholder" hidden><span>projet1.png</span><small data-i18n="placeholder">Ajoutez votre capture dans assets/projects</small></div>
+            </div>
+            <div class="project-copy">
+              <p class="project-type">SaaS Analytics</p>
+              <h3>LeadPulse Analytics</h3>
+              <p data-i18n="project1Desc">Plateforme full-stack pour suivre le tunnel Leads, MQL et SQL, calculer le CPL et le ROI, puis exporter des rapports PDF.</p>
+              <ul class="tag-list" aria-label="Technologies"><li>Next.js</li><li>TypeScript</li><li>Prisma</li><li>Supabase</li></ul>
+              <a class="text-link" href="https://amm-concrete-batching-landing.vercel.app/dashboard" target="_blank" rel="noreferrer" data-i18n="openProject">Ouvrir le projet</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="project2">
+            <div class="project-copy">
+              <p class="project-type">Web + Automation</p>
+              <h3>SarahFood</h3>
+              <p data-i18n="project2Desc">Site de restauration responsive avec panier dynamique et commandes automatisées vers WhatsApp.</p>
+              <ul class="tag-list" aria-label="Technologies"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>WhatsApp API</li></ul>
+              <a class="text-link" href="https://sarahassib.github.io/SarahFood/" target="_blank" rel="noreferrer" data-i18n="openProject">Ouvrir le projet</a>
+            </div>
+            <div class="project-media">
+              <img src="assets/projects/projet2.png" alt="Aperçu du site SarahFood" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+              <div class="media-placeholder" hidden><span>projet2.png</span><small data-i18n="placeholder">Ajoutez votre capture dans assets/projects</small></div>
+            </div>
+          </article>
+
+          <article class="project project-compact reveal" data-project="project3">
+            <div class="project-media">
+              <img src="assets/projects/projet3.png" alt="Aperçu de la landing page de génération de leads" onerror="this.hidden=true; this.nextElementSibling.hidden=false" />
+              <div class="media-placeholder" hidden><span>projet3.png</span><small data-i18n="placeholder">Ajoutez votre capture dans assets/projects</small></div>
+            </div>
+            <div class="project-copy">
+              <p class="project-type">Lead Generation</p>
+              <h3>Landing Page Acquisition</h3>
+              <p data-i18n="project3Desc">Landing page à haute conversion avec validation des données et centralisation automatique des leads dans Google Sheets.</p>
+              <ul class="tag-list" aria-label="Technologies"><li>JavaScript</li><li>Apps Script</li><li>Webhooks</li><li>Sheets API</li></ul>
+              <div class="project-links">
+                <a class="text-link" href="https://sarahassib.github.io/LeadsGeneration/" target="_blank" rel="noreferrer" data-i18n="openProject">Ouvrir le projet</a>
+                <a class="text-link muted-link" href="https://docs.google.com/spreadsheets/d/1tE_KW6lC2EsuKJEOR2N5tfgs-bPGVl24IilDLNuSsjo/edit?usp=sharing" target="_blank" rel="noreferrer">Google Sheets</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experience">
+        <div class="shell experience-grid">
+          <div class="experience-intro reveal">
+            <h2 data-i18n="experienceTitle">Expérience orientée résultats.</h2>
+            <p data-i18n="experienceIntro">Une pratique qui relie acquisition, contenu, design et maturation commerciale.</p>
+          </div>
+          <div class="timeline" id="experience-list">
+            <article class="timeline-item reveal">
+              <div class="timeline-date">02/2025 - <span data-i18n="present">Aujourd'hui</span></div>
+              <h3>Chargée Marketing</h3>
+              <p class="company">Atlantic Machinery Manufacturing</p>
+              <p data-i18n="exp1Desc">Pilotage de Meta Ads, génération de 250 à 300 prospects mensuels, prospection B2B, contenu social et nurturing par WhatsApp et email.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <div class="timeline-date">07/2024 - 05/2025</div>
+              <h3>Graphiste</h3>
+              <p class="company">Ard El Khaleej</p>
+              <p data-i18n="exp2Desc">Création de publications, catalogues et contenus pour les réseaux sociaux avec Canva, Photoshop et Illustrator.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <div class="timeline-date">11/2024 - 02/2025</div>
+              <h3>Graphiste</h3>
+              <p class="company">Les Laboratoires SEMBACO</p>
+              <p data-i18n="exp3Desc">Conception de packagings pour des compléments alimentaires.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell education-layout" id="education">
+        <div class="section-heading reveal">
+          <h2 data-i18n="educationTitle">Formation et certifications.</h2>
+          <p data-i18n="educationIntro">Un parcours construit entre développement digital, systèmes et marketing technique.</p>
+        </div>
+        <div class="education-grid">
+          <div class="education-list reveal" id="education-list">
+            <article><time>2025 - <span data-i18n="present">Aujourd'hui</span></time><h3>Licence Professionnelle</h3><p data-i18n="degree1">Ingénierie Sécurité et Administration des Réseaux et Systèmes, ENSAB</p></article>
+            <article><time>2024</time><h3 data-i18n="degree2Title">Technicien Spécialisé</h3><p data-i18n="degree2">Développement Digital, OFPPT</p></article>
+            <article><time>2022</time><h3>Baccalauréat</h3><p data-i18n="degree3">Sciences Physiques, Al Amal</p></article>
+          </div>
+          <div class="certifications-panel reveal" id="certifications-list">
+            <span class="panel-index">Certifications</span>
+            <h3 data-i18n="certEmptyTitle">Prochainement</h3>
+            <p data-i18n="certEmptyText">Les nouvelles certifications ajoutées depuis l'espace admin apparaîtront ici.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="skills">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <h2 data-i18n="skillsTitle">Compétences et outils.</h2>
+          </div>
+          <div class="skills-grid" id="skills-grid">
+            <article class="skill-group reveal"><h3>Growth & Acquisition</h3><p>Meta Ads, Lead Generation, Audience Targeting, A/B Testing, CBO, CPL, ROI</p></article>
+            <article class="skill-group skill-accent reveal"><h3>Automation & Analytics</h3><p>Google Sheets API, Apps Script, Webhooks, WhatsApp API, Conversion Tracking</p></article>
+            <article class="skill-group reveal"><h3>Development</h3><p>HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind, Prisma, Supabase</p></article>
+            <article class="skill-group reveal"><h3>Design & Content</h3><p>Figma, Canva, Photoshop, Illustrator, CapCut</p></article>
+            <article class="skill-group reveal"><h3>Workflow</h3><p>Git, GitHub, Vercel, Claude AI, OpenCode</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section shell" id="contact">
+        <div class="contact-copy reveal">
+          <h2 data-i18n="contactTitle">Parlons croissance, automatisation et marketing technique.</h2>
+          <p data-i18n="contactIntro">Je suis disponible pour des opportunités en Growth Marketing, Acquisition Digitale et Marketing Automation.</p>
+          <div class="contact-details">
+            <a href="mailto:sarahassib687@gmail.com">sarahassib687@gmail.com</a>
+            <a href="tel:+212619629538">+212 619 629 538</a>
+            <a href="https://linkedin.com/in/sara-hassib" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <label><span data-i18n="formName">Nom</span><input name="name" autocomplete="name" required /></label>
+          <label><span>Email</span><input type="email" name="email" autocomplete="email" required /></label>
+          <label><span data-i18n="formMessage">Message</span><textarea name="message" rows="5" required></textarea></label>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <button class="button button-primary" type="submit" data-i18n="sendMessage">Envoyer le message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <p>© <span id="year"></span> Sara Hassib</p>
+      <a href="admin.html" data-i18n="adminLink">Espace admin</a>
+    </footer>
+  </body>
+</html>

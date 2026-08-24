@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Admin | Sara Hassib</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js" defer></script>
+  </head>
+  <body class="admin-body">
+    <header class="admin-header">
+      <a class="brand" href="index.html"><span class="brand-mark">SH</span><span>Portfolio Admin</span></a>
+      <a class="button button-secondary" href="index.html">Voir le portfolio</a>
+    </header>
+    <main class="admin-shell">
+      <aside class="admin-sidebar">
+        <p class="admin-kicker">Gestion du contenu</p>
+        <h1>Bonjour Sara.</h1>
+        <nav aria-label="Sections admin">
+          <a class="active" href="#overview">Aperçu</a>
+          <a href="#hero">Accueil</a>
+          <a href="#projects-admin">Projets</a>
+          <a href="#experience-admin">Expériences</a>
+          <a href="#skills-admin">Compétences</a>
+          <a href="#certifications-admin">Certifications</a>
+        </nav>
+        <p class="admin-note">Cette première version enregistre les changements sur cet appareil. La version Supabase ajoutera un login sécurisé et une publication en ligne.</p>
+      </aside>
+      <div class="admin-content">
+        <section class="admin-section" id="overview">
+          <div><p class="admin-kicker">Aperçu</p><h2>Contenu du portfolio</h2></div>
+          <div class="admin-stats">
+            <article><strong>3</strong><span>Projets</span></article>
+            <article><strong>3</strong><span>Expériences</span></article>
+            <article><strong>5</strong><span>Groupes de compétences</span></article>
+            <article><strong id="cert-count">0</strong><span>Certifications</span></article>
+          </div>
+        </section>
+
+        <section class="admin-section" id="hero">
+          <div><p class="admin-kicker">Accueil</p><h2>Texte principal</h2></div>
+          <form class="admin-form" id="hero-form">
+            <label><span>Titre français</span><textarea name="heroFr" rows="3">L'acquisition pensée pour convertir.</textarea></label>
+            <label><span>English title</span><textarea name="heroEn" rows="3">Acquisition built to convert.</textarea></label>
+            <button class="button button-primary" type="submit">Enregistrer</button>
+            <p class="save-status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="admin-section" id="projects-admin">
+          <div><p class="admin-kicker">Projets</p><h2>Images attendues</h2></div>
+          <div class="asset-list">
+            <article><code>assets/projects/projet1.png</code><span>LeadPulse Analytics</span></article>
+            <article><code>assets/projects/projet2.png</code><span>SarahFood</span></article>
+            <article><code>assets/projects/projet3.png</code><span>Landing Page Acquisition</span></article>
+          </div>
+          <details class="admin-details">
+            <summary>Ajouter un projet</summary>
+            <form class="admin-form" id="project-form">
+              <label><span>Titre</span><input name="title" required /></label>
+              <label><span>Description française</span><textarea name="descriptionFr" rows="3" required></textarea></label>
+              <label><span>English description</span><textarea name="descriptionEn" rows="3" required></textarea></label>
+              <label><span>Technologies, séparées par des virgules</span><input name="tools" required /></label>
+              <label><span>Lien du projet</span><input name="url" type="url" required /></label>
+              <label><span>Nom de l'image, exemple projet4.webp</span><input name="image" required /></label>
+              <button class="button button-primary" type="submit">Ajouter le projet</button>
+            </form>
+          </details>
+          <div class="asset-list dynamic-list" id="project-admin-list"></div>
+        </section>
+
+        <section class="admin-section" id="experience-admin">
+          <div><p class="admin-kicker">Expériences</p><h2>Expériences actuelles</h2></div>
+          <div class="asset-list">
+            <article><strong>Atlantic Machinery Manufacturing</strong><span>Chargée Marketing</span></article>
+            <article><strong>Ard El Khaleej</strong><span>Graphiste</span></article>
+            <article><strong>Les Laboratoires SEMBACO</strong><span>Graphiste</span></article>
+          </div>
+          <details class="admin-details">
+            <summary>Ajouter une expérience</summary>
+            <form class="admin-form" id="experience-form">
+              <label><span>Poste</span><input name="role" required /></label>
+              <label><span>Entreprise</span><input name="company" required /></label>
+              <label><span>Période</span><input name="period" placeholder="08/2026 - Aujourd'hui" required /></label>
+              <label><span>Description française</span><textarea name="descriptionFr" rows="3" required></textarea></label>
+              <label><span>English description</span><textarea name="descriptionEn" rows="3" required></textarea></label>
+              <button class="button button-primary" type="submit">Ajouter l'expérience</button>
+            </form>
+          </details>
+          <div class="asset-list dynamic-list" id="experience-admin-list"></div>
+        </section>
+
+        <section class="admin-section" id="skills-admin">
+          <div><p class="admin-kicker">Compétences</p><h2>Groupes publiés</h2></div>
+          <div class="asset-list compact"><article>Growth & Acquisition</article><article>Automation & Analytics</article><article>Development</article><article>Design & Content</article><article>Workflow</article></div>
+          <details class="admin-details">
+            <summary>Ajouter un groupe de compétences</summary>
+            <form class="admin-form" id="skill-form">
+              <label><span>Nom du groupe</span><input name="name" required /></label>
+              <label><span>Compétences et outils, séparés par des virgules</span><textarea name="items" rows="3" required></textarea></label>
+              <button class="button button-primary" type="submit">Ajouter le groupe</button>
+            </form>
+          </details>
+          <div class="asset-list dynamic-list" id="skill-admin-list"></div>
+        </section>
+
+        <section class="admin-section" id="certifications-admin">
+          <div><p class="admin-kicker">Certifications</p><h2>Ajouter une certification</h2></div>
+          <form class="admin-form" id="cert-form">
+            <label><span>Nom</span><input name="name" required /></label>
+            <label><span>Organisation</span><input name="issuer" required /></label>
+            <label><span>Année</span><input name="year" inputmode="numeric" required /></label>
+            <label><span>Lien du certificat</span><input name="url" type="url" /></label>
+            <button class="button button-primary" type="submit">Ajouter</button>
+          </form>
+          <div class="asset-list" id="cert-admin-list"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
