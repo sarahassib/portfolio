@@ -193,7 +193,7 @@ function renderAllDynamicContent() {
   renderDynamicList(document.querySelector("#skill-admin-list"), saved.skills, (item) => item.name, "skills");
   document.querySelector(".admin-stats article:first-child strong").textContent = 3 + saved.projects.length;
   document.querySelector(".admin-stats article:nth-child(2) strong").textContent = 3 + saved.experiences.length;
-  document.querySelector(".admin-stats article:nth-child(3) strong").textContent = 5 + saved.skills.length;
+  document.querySelector(".admin-stats article:nth-child(3) strong").textContent = 4 + saved.skills.length;
 }
 
 renderAllDynamicContent();

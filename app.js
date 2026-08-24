@@ -28,7 +28,7 @@ const translations = {
     exp1Desc: "Pilotage de Meta Ads, génération de 250 à 300 prospects mensuels, prospection B2B, contenu social et nurturing par WhatsApp et email.",
     exp2Desc: "Création de publications, catalogues et contenus pour les réseaux sociaux avec Canva, Photoshop et Illustrator.",
     exp3Desc: "Conception de packagings pour des compléments alimentaires.",
-    educationTitle: "Formation et certifications.",
+    educationTitle: "Formation.",
     educationIntro: "Un parcours construit entre développement digital, systèmes et marketing technique.",
     degree1: "Ingénierie Sécurité et Administration des Réseaux et Systèmes, ENSAB",
     degree2Title: "Technicien Spécialisé",
@@ -77,7 +77,7 @@ const translations = {
     exp1Desc: "Meta Ads management, 250 to 300 monthly prospects, B2B outreach, social content, and lead nurturing through WhatsApp and email.",
     exp2Desc: "Advertising posts, catalogues and social media content created with Canva, Photoshop and Illustrator.",
     exp3Desc: "Packaging design for dietary supplements.",
-    educationTitle: "Education and certifications.",
+    educationTitle: "Education.",
     educationIntro: "A path built across digital development, systems and technical marketing.",
     degree1: "Security Engineering and Network and Systems Administration, ENSAB",
     degree2Title: "Specialized Technician",
@@ -399,26 +399,6 @@ function renderCustomContent(language = root.lang) {
     document.querySelector("#skills-grid").append(article);
   });
 
-  const certifications = content.certifications || [];
-  if (certifications.length) {
-    const panel = document.querySelector("#certifications-list");
-    panel.querySelector("h3").textContent = language === "fr" ? "Certifications" : "Certifications";
-    const intro = panel.querySelector("p");
-    intro.textContent = "";
-    const list = createElement("div", "cert-list");
-    list.dataset.customContent = "true";
-    certifications.forEach((certification) => {
-      const item = createElement(certification.url ? "a" : "div", "cert-item");
-      if (certification.url) {
-        item.href = certification.url;
-        item.target = "_blank";
-        item.rel = "noreferrer";
-      }
-      item.append(createElement("strong", "", certification.name), createElement("span", "", `${certification.issuer}, ${certification.year}`));
-      list.append(item);
-    });
-    panel.append(list);
-  }
 }
 
 applyAdminContent();
